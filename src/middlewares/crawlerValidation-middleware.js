@@ -4,12 +4,12 @@ function crawlerValidation(req, res, next) {
   if (!pageNumber) {
     req.params.pageNumber = 1;
   } else if (!parseInt(pageNumber)) {
-    res.status(400).send('Need a number');
+    return res.status(400).send('Need a number');
   } else {
     req.params.pageNumber = parseInt(pageNumber);
   }
 
-  next();
+  return next();
 }
 
 module.exports = { crawlerValidation };

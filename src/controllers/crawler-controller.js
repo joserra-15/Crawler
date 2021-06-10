@@ -27,11 +27,9 @@ async function crawler(req, res) {
     }
 
     const info = await Promise.all(promises);
-    // console.log(info);
-    res.status(200).send(info.flat());
+    return res.status(200).send(info.flat());
   } catch (error) {
-    console.log(error);
-    res.status(400).send(error);
+    return res.status(400).send(error);
   }
 }
 
