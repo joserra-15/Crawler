@@ -1,0 +1,26 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "A little crawler that extract title, comments and date in Hacker news",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joserra-15/crawler.git"
+  },
+  "author": "Jose Serralvo Rojo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joserra-15/crawler/issues"
+  },
+  "homepage": "https://github.com/joserra-15/crawler#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "nodemon": "^2.0.7"
+  }
+}
