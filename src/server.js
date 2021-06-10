@@ -8,11 +8,7 @@ const app = express();
 
 app.use(helmet());
 app.use(express.json());
-app.use(
-  cors({
-    origin: '*',
-  }),
-);
+app.use(cors());
 
 app.get('/:pageNumber', crawlerValidation, crawlerController.crawler);
 app.get('/', crawlerValidation, crawlerController.crawler);
