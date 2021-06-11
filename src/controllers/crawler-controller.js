@@ -4,9 +4,9 @@ const { getAllInfoFromNews } = require('../utils');
 
 async function crawler(req, res) {
   const { pageNumber } = req.params;
-  const { indexCache, infoCache } = getCache(pageNumber);
 
   try {
+    const { indexCache, infoCache } = getCache(pageNumber);
     const response = [...infoCache];
     if (indexCache < pageNumber) {
       const promises = [];

@@ -1,6 +1,6 @@
 const NodeCache = require('node-cache');
 const KEY_CACHE = 'crawler';
-const TIME_TO_EXPIRED = 10;
+const TIME_TO_EXPIRED = 60;
 const cache = new NodeCache({ checkperiod: TIME_TO_EXPIRED });
 
 function getCache(pages) {
