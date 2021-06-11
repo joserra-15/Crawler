@@ -1,6 +1,6 @@
-const cheerio = require('cheerio');
 const { getCache, setCache } = require('../services/cache');
 const { getLink } = require('../services/hacker-news');
+const { getAllInfoFromNews } = require('../utils');
 
 async function crawler(req, res) {
   const { pageNumber } = req.params;
@@ -12,21 +12,7 @@ async function crawler(req, res) {
       const promises = [];
       for (let index = indexCache + 1; index <= pageNumber; index++) {
         const { data } = await getLink(index);
-        const $ = cheerio.load(data);
-
-        let news = [];
-        $('.itemlist .athing').each((_, element) => {
-          const createNew = {
-            rank: $(element).find('.title .rank').text().trim(),
-            title: $(element).find('.title .storylink').text().trim(),
-            score: $(element).next().find('.score').text().trim(),
-            date: $(element).next().find('.age a').text().trim(),
-            comments: $(element).next().find('a').last().text().trim(),
-          };
-
-          news = [...news, createNew];
-        });
-
+        const news = getAllInfoFromNews(data);
         promises.push(news);
       }
 
