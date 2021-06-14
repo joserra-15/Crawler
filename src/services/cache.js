@@ -27,4 +27,5 @@ cache.on('expired', function (key) {
 module.exports = {
   getCache,
   setCache,
+  cache,
 };
